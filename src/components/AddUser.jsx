@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
   Box,
+  Select,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../service/api";
@@ -108,19 +109,24 @@ const AddUser = () => {
           <InputLabel htmlFor="username" sx={{ color: "#b3b3b3" }}>
             Status
           </InputLabel>
-          <Input
+          <Select
+            type="dropdown"
             id="status"
             required
             onChange={(e) => onValueChange(e)}
             name="status"
             sx={{
               color: "#ffffff",
+              border: "none",
               borderBottom: "2px solid #00a676",
               "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
             }}
-          />
+          >
+            <option value="Active">Active</option>
+            <option value="InActive">InActive</option>
+          </Select>
         </FormControl>
 
         <FormControl sx={{ marginBottom: "20px" }}>
