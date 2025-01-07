@@ -26,6 +26,7 @@ const AddUser = () => {
   const onValueChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
+  const isFormFill = Object.values(user).every((field) => field.trim() !== "");
 
   const addUserDetails = async () => {
     await addUser(user);
@@ -174,6 +175,7 @@ const AddUser = () => {
           <Button
             onClick={() => addUserDetails()}
             variant="contained"
+            disabled={!isFormFill}
             sx={{
               backgroundColor: "#00a676",
               "&:hover": {
