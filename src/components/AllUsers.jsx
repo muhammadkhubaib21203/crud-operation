@@ -60,6 +60,7 @@ const AllUsers = () => {
             backgroundColor: "#1b1b1b",
             borderRadius: "10px",
             overflow: "hidden",
+            borderCollapse: "separate",
             boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
           }}
         >
@@ -81,7 +82,7 @@ const AllUsers = () => {
                 Phone
               </TableCell>
               <TableCell sx={{ color: "#ffffff", fontSize: "18px" }}>
-                Company Name
+                Salary
               </TableCell>
               <TableCell sx={{ color: "#ffffff", fontSize: "18px" }}>
                 Actions
@@ -117,13 +118,13 @@ const AllUsers = () => {
                   {user.phone}
                 </TableCell>
                 <TableCell sx={{ color: "#ffffff", fontSize: "16px" }}>
-                  {user.company}
+                  {user.salary}
                 </TableCell>
                 <TableCell
                   sx={{
                     display: "flex",
                     flexDirection: { xs: "column", lg: "row" },
-                    gap: {lg: "10px"},
+                    gap: { lg: "10px" },
                   }}
                 >
                   <Button

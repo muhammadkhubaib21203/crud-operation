@@ -16,7 +16,7 @@ const initialValues = {
   username: "",
   email: "",
   phone: "",
-  company: "",
+  salary: "",
 };
 
 const AddUser = () => {
@@ -70,6 +70,7 @@ const AddUser = () => {
           </InputLabel>
           <Input
             id="name"
+            required
             onChange={(e) => onValueChange(e)}
             name="name"
             sx={{
@@ -88,6 +89,7 @@ const AddUser = () => {
           </InputLabel>
           <Input
             id="username"
+            required
             onChange={(e) => onValueChange(e)}
             name="username"
             sx={{
@@ -106,8 +108,10 @@ const AddUser = () => {
           </InputLabel>
           <Input
             id="email"
+            required
             onChange={(e) => onValueChange(e)}
             name="email"
+            type="email"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
@@ -123,33 +127,45 @@ const AddUser = () => {
             Phone
           </InputLabel>
           <Input
+            required
             id="phone"
             onChange={(e) => onValueChange(e)}
             name="phone"
+            type="number"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
               "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
+              "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                {
+                  display: "none",
+                },
             }}
           />
         </FormControl>
 
         <FormControl sx={{ marginBottom: "20px" }}>
           <InputLabel htmlFor="company" sx={{ color: "#b3b3b3" }}>
-            Company Name
+            Salary
           </InputLabel>
           <Input
-            id="company"
+            required
+            id="salary"
             onChange={(e) => onValueChange(e)}
-            name="company"
+            name="salary"
+            type="number"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
               "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
+              "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                {
+                  display: "none",
+                },
             }}
           />
         </FormControl>

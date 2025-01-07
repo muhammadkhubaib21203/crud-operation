@@ -16,7 +16,7 @@ const initialValues = {
   username: "",
   email: "",
   phone: "",
-  company: "",
+  salary: "",
 };
 
 const EditUser = () => {
@@ -48,7 +48,7 @@ const EditUser = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
+        minHeight: "80vh",
         backgroundColor: "#121212",
         padding: "20px",
       }}
@@ -80,13 +80,14 @@ const EditUser = () => {
           </InputLabel>
           <Input
             id="name"
+            required
             onChange={(e) => onValueChange(e)}
             name="name"
             value={user.name}
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
-              '&:hover:not(.Mui-disabled):before': {
+              "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
             }}
@@ -98,6 +99,7 @@ const EditUser = () => {
             Username
           </InputLabel>
           <Input
+            required
             id="username"
             onChange={(e) => onValueChange(e)}
             name="username"
@@ -105,7 +107,7 @@ const EditUser = () => {
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
-              '&:hover:not(.Mui-disabled):before': {
+              "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
             }}
@@ -117,14 +119,16 @@ const EditUser = () => {
             Email
           </InputLabel>
           <Input
+            required
             id="email"
+            type="email"
             onChange={(e) => onValueChange(e)}
             name="email"
             value={user.email}
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
-              '&:hover:not(.Mui-disabled):before': {
+              "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
             }}
@@ -136,35 +140,47 @@ const EditUser = () => {
             Phone
           </InputLabel>
           <Input
+            required
             id="phone"
             onChange={(e) => onValueChange(e)}
             name="phone"
+            type="number"
             value={user.phone}
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
-              '&:hover:not(.Mui-disabled):before': {
+              "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
+              "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                {
+                  display: "none",
+                },
             }}
           />
         </FormControl>
 
         <FormControl sx={{ marginBottom: "20px" }}>
           <InputLabel htmlFor="company" sx={{ color: "#b3b3b3" }}>
-            Company Name
+            Salary
           </InputLabel>
           <Input
-            id="company"
+            required
+            id="salary"
             onChange={(e) => onValueChange(e)}
-            name="company"
-            value={user.company}
+            name="salary"
+            value={user.salary}
+            type="number"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
-              '&:hover:not(.Mui-disabled):before': {
+              "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
+              "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button":
+                {
+                  display: "none",
+                },
             }}
           />
         </FormControl>
@@ -175,7 +191,7 @@ const EditUser = () => {
             variant="contained"
             sx={{
               backgroundColor: "#00a676",
-              '&:hover': {
+              "&:hover": {
                 backgroundColor: "#008f5a",
               },
               fontSize: "16px",
