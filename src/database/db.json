@@ -5,28 +5,36 @@
       "username": "muhammadkhubaib",
       "email": "khubaib@gmail.com",
       "phone": "03360181691",
-      "id": 1
+      "id": 1,
+      "salary": "23000",
+      "status": "Active"
     },
     {
       "name": "suhaib",
       "username": "suhaibansari",
       "email": "suhaib@gmail.com",
       "phone": "03376542876",
-      "id": 2
+      "id": 2,
+      "salary": "30000",
+      "status": "Active"
     },
     {
       "name": "zain",
       "username": "zainanasri",
       "email": "zain@gmail.com",
       "phone": "0866252525",
-      "id": 3
+      "id": 3,
+      "salary": "40000",
+      "status": "Active"
     },
     {
       "name": "usayed",
       "username": "usayedansari",
       "email": "usayed@gmail.com",
       "phone": "03372624537",
-      "id": 4
+      "id": 4,
+      "salary": "20000",
+      "status": "Active"
     }
   ]
 }

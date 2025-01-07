@@ -14,6 +14,7 @@ import { getUser, editUser } from "../service/api";
 const initialValues = {
   name: "",
   username: "",
+  status: "",
   email: "",
   phone: "",
   salary: "",
@@ -104,6 +105,26 @@ const EditUser = () => {
             onChange={(e) => onValueChange(e)}
             name="username"
             value={user.username}
+            sx={{
+              color: "#ffffff",
+              borderBottom: "2px solid #00a676",
+              "&:hover:not(.Mui-disabled):before": {
+                borderBottomColor: "#008f5a",
+              },
+            }}
+          />
+        </FormControl>
+
+        <FormControl sx={{ marginBottom: "20px" }}>
+          <InputLabel htmlFor="username" sx={{ color: "#b3b3b3" }}>
+            Status
+          </InputLabel>
+          <Input
+            required
+            id="status"
+            onChange={(e) => onValueChange(e)}
+            name="status"
+            value={user.status}
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",

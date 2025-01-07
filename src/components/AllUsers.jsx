@@ -76,6 +76,9 @@ const AllUsers = () => {
                 Username
               </TableCell>
               <TableCell sx={{ color: "#ffffff", fontSize: "18px" }}>
+                Status
+              </TableCell>
+              <TableCell sx={{ color: "#ffffff", fontSize: "18px" }}>
                 Email
               </TableCell>
               <TableCell sx={{ color: "#ffffff", fontSize: "18px" }}>
@@ -110,6 +113,9 @@ const AllUsers = () => {
                 </TableCell>
                 <TableCell sx={{ color: "#ffffff", fontSize: "16px" }}>
                   {user.username}
+                </TableCell>
+                <TableCell sx={{ color: "#ffffff", fontSize: "16px" }}>
+                  {user.status}
                 </TableCell>
                 <TableCell sx={{ color: "#ffffff", fontSize: "16px" }}>
                   {user.email}
@@ -181,6 +187,12 @@ const AllUsers = () => {
                 sx={{ color: "#ffffff", fontSize: "14px" }}
               >
                 Username: {user.username}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "#ffffff", fontSize: "14px" }}
+              >
+                Status: {user.status}
               </Typography>
               <Typography
                 variant="body2"
