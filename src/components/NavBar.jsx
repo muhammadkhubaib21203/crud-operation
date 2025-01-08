@@ -1,7 +1,60 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const NavBar = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setDrawerOpen(open);
+  };
+
+  const navItems = [
+    { label: "Home", path: "/" },
+    { label: "All Users", path: "/all" },
+    { label: "Add User", path: "/add" },
+  ];
+
+  const drawerList = (
+    <List sx={{ width: 250 }}>
+      {navItems.map((item) => (
+        <ListItem button key={item.label}>
+          <NavLink
+            to={item.path}
+            style={{
+              textDecoration: "none",
+              color: "#111111",
+              width: "100%",
+              fontSize: "18px",
+            }}
+            onClick={() => setDrawerOpen(false)} 
+          >
+            <ListItemText primary={item.label} />
+          </NavLink>
+        </ListItem>
+      ))}
+    </List>
+  );
+
   return (
     <AppBar
       sx={{
@@ -21,52 +74,47 @@ const NavBar = () => {
         >
           HKIT
         </Typography>
-        <div>
-          <NavLink
-            to="/"
-            style={{
-              fontFamily: "Arial, sans-serif",
-              fontSize: "20px",
-              marginRight: "20px",
-              color: "#ffffff",
-              textDecoration: "none",
-              padding: "5px 10px",
-              borderRadius: "5px",
-            }}
-            activeStyle={{ backgroundColor: "#00a676" }}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/all"
-            style={{
-              fontFamily: "Arial, sans-serif",
-              fontSize: "20px",
-              marginRight: "20px",
-              color: "#ffffff",
-              textDecoration: "none",
-              padding: "5px 10px",
-              borderRadius: "5px",
-            }}
-            activeStyle={{ backgroundColor: "#00a676" }}
-          >
-            All Users
-          </NavLink>
-          <NavLink
-            to="/add"
-            style={{
-              fontFamily: "Arial, sans-serif",
-              fontSize: "20px",
-              color: "#ffffff",
-              textDecoration: "none",
-              padding: "5px 10px",
-              borderRadius: "5px",
-            }}
-            activeStyle={{ backgroundColor: "#00a676" }}
-          >
-            Add User
-          </NavLink>
-        </div>
+
+        {isMobile ? (
+          <>
+            <IconButton
+              edge="end"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={toggleDrawer(false)}
+            >
+              {drawerList}
+            </Drawer>
+          </>
+        ) : (
+          <div>
+            {navItems.map((item) => (
+              <NavLink
+                key={item.label}
+                to={item.path}
+                style={{
+                  fontFamily: "Arial, sans-serif",
+                  fontSize: "20px",
+                  marginRight: "20px",
+                  color: "#ffffff",
+                  textDecoration: "none",
+                  padding: "5px 10px",
+                  borderRadius: "5px",
+                }}
+                activeStyle={{ backgroundColor: "#00a676" }}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+        )}
       </Toolbar>
     </AppBar>
   );
