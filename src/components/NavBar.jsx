@@ -18,16 +18,6 @@ const NavBar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setDrawerOpen(open);
-  };
-
   const navItems = [
     { label: "Home", path: "/" },
     { label: "All Users", path: "/all" },
@@ -46,7 +36,7 @@ const NavBar = () => {
               width: "100%",
               fontSize: "18px",
             }}
-            onClick={() => setDrawerOpen(false)} 
+            onClick={() => setDrawerOpen(false)}
           >
             <ListItemText primary={item.label} />
           </NavLink>
@@ -79,16 +69,16 @@ const NavBar = () => {
           <>
             <IconButton
               edge="end"
-              color="inherit"
+              color="success"
               aria-label="menu"
-              onClick={toggleDrawer(true)}
+              onClick={() => setDrawerOpen(true)}
             >
               <MenuIcon />
             </IconButton>
             <Drawer
               anchor="right"
               open={drawerOpen}
-              onClose={toggleDrawer(false)}
+              onClose={() => setDrawerOpen(false)}
             >
               {drawerList}
             </Drawer>
