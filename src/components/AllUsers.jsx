@@ -9,6 +9,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  TextField,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -16,8 +17,10 @@ import { getUsers, deleteUser } from "../service/api";
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   useEffect(() => {
     getUserDetails();
   }, []);
@@ -31,6 +34,18 @@ const AllUsers = () => {
     await deleteUser(id);
     getUserDetails();
   };
+
+  const handleSearch = async (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredUsers = users.filter(
+    (user) =>
+      user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.username.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      user.phone.includes(searchQuery)
+  );
 
   return (
     <Box
@@ -52,6 +67,33 @@ const AllUsers = () => {
       >
         All Users
       </Typography>
+
+      <TextField
+        placeholder="Search..."
+        variant="outlined"
+        value={searchQuery}
+        autoComplete="off"
+        onChange={handleSearch}
+        sx={{
+          width: { xs: "100%", sm: "100%", lg: "20%", md: "40%" },
+          backgroundColor: "#1b1b1b",
+          borderRadius: "5px",
+          marginBottom: "20px",
+          "& .MuiOutlinedInput-root": {
+            color: "#ffffff",
+            "& fieldset": {
+              borderColor: "#00a676",
+            },
+            "&:hover fieldset": {
+              borderColor: "#008f5a",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "#00a676",
+            },
+          },
+        }}
+      />
+
       {!isMobile && (
         <Table
           sx={{
@@ -93,7 +135,7 @@ const AllUsers = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map((user) => (
+            {filteredUsers.map((user) => (
               <TableRow
                 key={user.id}
                 sx={{
@@ -166,7 +208,7 @@ const AllUsers = () => {
 
       {isMobile && (
         <Box sx={{ marginTop: "20px" }}>
-          {users.map((user) => (
+          {filteredUsers.map((user) => (
             <Box
               key={user.id}
               sx={{
