@@ -9,7 +9,6 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
 import { useTheme, useMediaQuery } from "@mui/material";
 
