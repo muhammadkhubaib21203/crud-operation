@@ -25,9 +25,11 @@ const initialValues = {
 const AddUser = () => {
   const [user, setUser] = useState(initialValues);
   const navigate = useNavigate();
+  const [isGoogleSuggestion, setIsGoogleSuggestion] = useState(false);
 
   const onValueChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
+    setIsGoogleSuggestion(false);
   };
   const isFormFill = Object.values(user).every((field) => field.trim() !== "");
 
@@ -79,6 +81,7 @@ const AddUser = () => {
             name="name"
             sx={{
               color: "#ffffff",
+              backgroundColor: `${isGoogleSuggestion && "transparent"}`,
               borderBottom: "2px solid #00a676",
               "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
