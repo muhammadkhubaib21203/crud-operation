@@ -19,8 +19,8 @@ const NavBar = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "All Users", path: "/all" },
-    { label: "Add User", path: "/add" },
+    { label: "All Employees", path: "/all" },
+    { label: "Add Employee", path: "/add" },
   ];
 
   const drawerList = (
@@ -92,10 +92,11 @@ const NavBar = () => {
                   fontFamily: "Arial, sans-serif",
                   fontSize: "20px",
                   marginRight: "20px",
-                  color: "#ffffff",
+                  color: "#00a676",
                   textDecoration: "none",
                   padding: "5px 10px",
                   borderRadius: "5px",
+                  fontWeight: "bolder",
                 }}
                 activeStyle={{ backgroundColor: "#00a676" }}
               >
