@@ -7,6 +7,8 @@ import {
   Typography,
   Button,
   Box,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { getUser, editUser } from "../service/api";
@@ -115,24 +117,32 @@ const EditUser = () => {
           />
         </FormControl>
 
-        <FormControl sx={{ marginBottom: "20px" }}>
-          <InputLabel htmlFor="username" sx={{ color: "#b3b3b3" }}>
+        <FormControl sx={{ marginBottom: "20px" }} variant="standard">
+          <InputLabel
+            htmlFor="username"
+            sx={{ color: "#b3b3b3", paddingLeft: "15px" }}
+          >
             Status
           </InputLabel>
-          <Input
-            required
+          <Select
+            type="dropdown"
             id="status"
+            required
             onChange={(e) => onValueChange(e)}
             name="status"
             value={user.status}
             sx={{
               color: "#ffffff",
+              border: "none",
               borderBottom: "2px solid #00a676",
               "&:hover:not(.Mui-disabled):before": {
                 borderBottomColor: "#008f5a",
               },
             }}
-          />
+          >
+            <MenuItem value="Active">Active</MenuItem>
+            <MenuItem value="InActive">InActive</MenuItem>
+          </Select>
         </FormControl>
 
         <FormControl sx={{ marginBottom: "20px" }}>

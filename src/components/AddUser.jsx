@@ -8,6 +8,7 @@ import {
   Button,
   Box,
   Select,
+  MenuItem,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../service/api";
@@ -105,8 +106,11 @@ const AddUser = () => {
           />
         </FormControl>
 
-        <FormControl sx={{ marginBottom: "20px" }}>
-          <InputLabel htmlFor="username" sx={{ color: "#b3b3b3" }}>
+        <FormControl sx={{ marginBottom: "20px" }} variant="standard">
+          <InputLabel
+            htmlFor="username"
+            sx={{ color: "#b3b3b3", paddingLeft: "15px" }}
+          >
             Status
           </InputLabel>
           <Select
@@ -124,8 +128,8 @@ const AddUser = () => {
               },
             }}
           >
-            <option value="Active">Active</option>
-            <option value="InActive">InActive</option>
+            <MenuItem value="Active">Active</MenuItem>
+            <MenuItem value="InActive">InActive</MenuItem>
           </Select>
         </FormControl>
 
