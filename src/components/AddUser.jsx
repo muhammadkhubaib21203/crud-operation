@@ -165,7 +165,7 @@ const AddUser = () => {
             id="phone"
             onChange={(e) => onValueChange(e)}
             name="phone"
-            type="number"
+            type="text"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
@@ -189,7 +189,7 @@ const AddUser = () => {
             id="salary"
             onChange={(e) => onValueChange(e)}
             name="salary"
-            type="number"
+            type="text"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",

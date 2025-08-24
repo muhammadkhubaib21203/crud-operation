@@ -1,40 +1,49 @@
 {
   "users": [
     {
-      "name": "muhammad khubaib",
+      "name": "Muhammad khubaib",
       "username": "muhammadkhubaib",
-      "email": "khubaib@gmail.com",
-      "phone": "03360181691",
+      "email": "muhammadkhubaib21203@gmail.com",
+      "phone": "N/A",
       "id": 1,
-      "salary": "23000",
-      "status": "InActive"
-    },
-    {
-      "name": "suhaib",
-      "username": "suhaibansari",
-      "email": "suhaib@gmail.com",
-      "phone": "03376542876",
-      "id": 2,
-      "salary": "30000",
+      "salary": "N/A",
       "status": "Active"
     },
     {
-      "name": "zain",
-      "username": "zainanasri",
-      "email": "zain@gmail.com",
-      "phone": "0866252525",
-      "id": 3,
-      "salary": "40000",
-      "status": "Active"
+      "name": "Hamza khan ",
+      "username": "hamza",
+      "status": "Active",
+      "email": "tech.hamzakhan@gmail.com",
+      "phone": "N/A",
+      "salary": "N/A",
+      "id": 2
     },
     {
-      "name": "usayed",
-      "username": "usayedansari",
-      "email": "usayed@gmail.com",
-      "phone": "03372624537",
-      "id": 4,
-      "salary": "20000",
-      "status": "Active"
+      "name": "Faisal",
+      "username": "faisal",
+      "status": "Active",
+      "email": "muhammadfaisal159@gmail.com",
+      "phone": "N/A",
+      "salary": "N/A",
+      "id": 3
+    },
+    {
+      "name": "Saad",
+      "username": "saad",
+      "status": "Active",
+      "email": "N/A",
+      "phone": "N/A",
+      "salary": "N/A",
+      "id": 4
+    },
+    {
+      "name": "Muzammil",
+      "username": "muzammil",
+      "status": "Active",
+      "email": "N/A",
+      "phone": "N/A",
+      "salary": "N/A",
+      "id": 5
     }
   ]
 }

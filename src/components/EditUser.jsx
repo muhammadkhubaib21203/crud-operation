@@ -175,7 +175,7 @@ const EditUser = () => {
             id="phone"
             onChange={(e) => onValueChange(e)}
             name="phone"
-            type="number"
+            type="text"
             value={user.phone}
             sx={{
               color: "#ffffff",
@@ -201,7 +201,7 @@ const EditUser = () => {
             onChange={(e) => onValueChange(e)}
             name="salary"
             value={user.salary}
-            type="number"
+            type="text"
             sx={{
               color: "#ffffff",
               borderBottom: "2px solid #00a676",
